@@ -1,0 +1,128 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>שאלון Discovery — בדיקת ביקוש</title>
+<link rel="stylesheet" href="heebo.css" />
+<style>
+:root{--brand:#6F28F0;--brand-deep:#5720B9;--b25:#F2ECFE;--b50:#E5D8FC;--ink:#180926;--body:#42364E;--muted:#6C6375;--bg:#F5F2F4;--fg:#fff;--border:#E1DFE3;--ok:#1E8E3F;--ok25:#EBF9EE;--danger:#C62736;--danger25:#FDEDEE;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Heebo','Segoe UI',system-ui,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;padding:clamp(20px,4vw,40px) clamp(16px,4vw,32px);}
+.sheet{max-width:800px;margin:0 auto;}
+a.back{display:inline-block;margin-bottom:14px;color:var(--brand-deep);text-decoration:none;font-weight:700;font-size:13px;}
+.top{background:linear-gradient(120deg,#5720B9,#6F28F0);color:#fff;border-radius:16px;padding:26px 28px;margin-bottom:18px;position:relative;overflow:hidden;}
+.top::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 140% at 88% -20%,rgba(255,255,255,.16),transparent 55%);}
+.top h1{font-size:clamp(20px,3.5vw,26px);font-weight:800;margin:0 0 6px;position:relative;}
+.top p{margin:0;font-size:13.5px;color:#F2ECFE;position:relative;}
+.rule{background:var(--b25);border:1px solid var(--b50);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--brand-deep);margin-bottom:16px;font-weight:600;}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:18px;}
+.meta label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:4px;}
+.meta input{width:100%;height:36px;border:1.5px solid var(--border);border-radius:8px;padding:0 10px;font:400 14px 'Heebo',sans-serif;color:var(--ink);background:var(--fg);}
+.sec{margin:22px 0 8px;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--brand-deep);border-inline-start:4px solid var(--brand);padding-inline-start:10px;}
+.q{background:var(--fg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+.q .txt{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.q .txt .num{color:var(--brand);font-weight:800;margin-inline-end:6px;}
+.q textarea{width:100%;min-height:52px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;font:400 13.5px/1.6 'Heebo',sans-serif;color:var(--ink);background:var(--bg);resize:vertical;outline:none;}
+.q textarea:focus{border-color:var(--brand);}
+.scale{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
+.scale button{width:36px;height:36px;border:1.5px solid var(--border);background:var(--fg);border-radius:8px;font:700 14px 'Heebo';color:var(--body);cursor:pointer;}
+.scale button.on{background:var(--brand);color:#fff;border-color:var(--brand);}
+.signals{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sigcard{border-radius:10px;padding:14px 16px;font-size:13px;}
+.sigcard.green{background:var(--ok25);border:1px solid var(--ok);}
+.sigcard.red{background:var(--danger25);border:1px solid var(--danger);}
+.sigcard h4{margin:0 0 8px;font-size:13.5px;font-weight:800;}
+.sigcard.green h4{color:var(--ok);}
+.sigcard.red h4{color:var(--danger);}
+.sigcard label{display:flex;gap:8px;align-items:flex-start;margin:6px 0;color:var(--body);cursor:pointer;}
+.verdict{background:var(--fg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-top:12px;}
+.verdict label{font-size:12px;font-weight:700;color:var(--muted);display:block;margin-bottom:6px;}
+.verdict textarea{width:100%;min-height:60px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;font:400 13.5px 'Heebo';background:var(--bg);resize:vertical;}
+.tools{display:flex;gap:10px;justify-content:flex-start;margin:18px 0;flex-wrap:wrap;}
+.tools button{border:1.5px solid var(--brand);background:var(--brand);color:#fff;border-radius:8px;padding:9px 18px;font:700 13px 'Heebo';cursor:pointer;}
+.tools button.ghost{background:transparent;color:var(--brand-deep);}
+.foot{margin-top:20px;padding-top:14px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center;}
+@media(max-width:560px){.signals{grid-template-columns:1fr;}}
+@media print{a.back,.tools{display:none;}body{background:#fff;padding:0;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+<a class="back" href="index.html">→ חזרה לכל המסמכים</a>
+
+<div class="top">
+  <h1>שאלון Discovery — בדיקת ביקוש</h1>
+  <p>למלא תוך כדי שיחה. המטרה: לגלות אם הכאב אמיתי אצל אחרים, ואם יש נכונות לשלם.</p>
+</div>
+
+<div class="rule">הכלל הזהב: אַת מקשיבה 80%, מדברת 20%. שאלי על העבר וההווה (מה עושים היום) — לא "האם היית משתמש".</div>
+
+<div class="meta">
+  <div><label>שם</label><input placeholder="שם המרואיין/ת"/></div>
+  <div><label>תפקיד</label><input placeholder="VP Ops / COO / HR…"/></div>
+  <div><label>חברה / גודל</label><input placeholder="שם · מס' עובדים"/></div>
+  <div><label>תאריך</label><input placeholder="__ / __ / ____"/></div>
+</div>
+
+<div class="sec">חלק 1 · המצב היום</div>
+<div class="q"><div class="txt"><span class="num">1</span>איך אתם מנהלים היום את יעדי החברה והמחלקות? ספר/י על הרבעון האחרון.</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">2</span>איפה זה חי בפועל — אקסל? מצגת? כלי? כמה מקומות?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">3</span>מי מחזיק את התמונה המלאה, וכמה זמן לוקח להרכיב אותה?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">4</span>מתי בפעם האחרונה גילית באיחור שמחלקה מפגרת? מה קרה?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">5</span>איך מנהלים תלויות בין מחלקות? מה קורה כשמחלקה תקועה בגלל אחרת?</div><textarea></textarea></div>
+
+<div class="sec">חלק 2 · עומק הכאב</div>
+<div class="q"><div class="txt"><span class="num">6</span>כמה זמן בחודש הולך על איסוף סטטוסים והכנה לישיבות הנהלה?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">7</span>כששואלים "מה הסטטוס של יעד X?" — כמה מהר יש תשובה אמינה?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">8</span>הייתה החלטה שהתקבלה על תמונה לא מעודכנת? מה זה עלה?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">9</span>בסולם 1–10, כמה מתסכל הנושא? (ואז: למה דווקא המספר הזה?)</div>
+  <div class="scale" id="scale"></div>
+  <textarea placeholder="למה דווקא המספר הזה ולא נמוך יותר?"></textarea></div>
+
+<div class="sec">חלק 3 · פתרונות שניסו</div>
+<div class="q"><div class="txt"><span class="num">10</span>ניסיתם כלי לזה בעבר (OKR / Monday / אקסל מובנה)? למה עזבתם?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">11</span>שמעת ש-Viva Goals נסגר? (אם משתמשים — לאן עוברים?)</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">12</span>מה היה צריך לקרות כדי שתאמצו כלי חדש? מי מאשר? מי מתנגד?</div><textarea></textarea></div>
+
+<div class="sec">חלק 4 · נכונות לשלם</div>
+<div class="q"><div class="txt"><span class="num">13</span>אם היה פתרון כזה — כמה שווה לך? מה תקציב סביר?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">14</span>מי היה "בעל הבית" של כלי כזה — תפעול / HR / מנכ"ל?</div><textarea></textarea></div>
+<div class="q"><div class="txt"><span class="num">✓</span>סגירה: "יש עוד מישהו שכדאי שאדבר איתו?" (הפניות = זהב)</div><textarea placeholder="הפניות שקיבלת…"></textarea></div>
+
+<div class="sec">ניתוח — מה שמעתי</div>
+<div class="signals">
+  <div class="sigcard green"><h4>סימנים ירוקים (ביקוש אמיתי)</h4>
+    <label><input type="checkbox"/> מתאר כאב קונקרטי ("רודפים אחרי אקסלים")</label>
+    <label><input type="checkbox"/> מכמת בזבוז זמן (ימים/שבוע)</label>
+    <label><input type="checkbox"/> ניסה כלי ונטש — יש היסטוריה</label>
+    <label><input type="checkbox"/> נתן הפניות מיד</label>
+    <label><input type="checkbox"/> יודע מי מאשר תקציב וכמה</label>
+  </div>
+  <div class="sigcard red"><h4>סימנים אדומים (אין באמת כאב)</h4>
+    <label><input type="checkbox"/> "זה בסדר, מסתדרים"</label>
+    <label><input type="checkbox"/> לא יודע לכמת</label>
+    <label><input type="checkbox"/> מעולם לא חיפש פתרון</label>
+    <label><input type="checkbox"/> מנומס אבל מעורפל</label>
+    <label><input type="checkbox"/> "צריך לבדוק, אולי"</label>
+  </div>
+</div>
+<div class="verdict"><label>שורה תחתונה מהשיחה (הכאב במילים שלו/ה + האם ישלם/תשלם)</label><textarea></textarea></div>
+<p style="font-size:12.5px;color:var(--muted);margin-top:8px;">כלל החלטה: 7+ מתוך 10 שיחות עם כאב קונקרטי + נכונות לשלם + הפניות → יש ביקוש. רוב מנומסים-מעורפלים → עצרי לפני שמשקיעים.</p>
+
+<div class="tools">
+  <button onclick="window.print()">הדפסה / שמירה כ-PDF</button>
+  <button class="ghost" onclick="location.reload()">ניקוי לשיחה חדשה</button>
+</div>
+
+<div class="foot">שאלון Discovery · מלאי עותק לכל שיחה</div>
+</div>
+
+<script>
+var s=document.getElementById('scale');
+for(var i=1;i<=10;i++){(function(n){var b=document.createElement('button');b.textContent=n;
+b.onclick=function(){[].forEach.call(s.children,function(c){c.classList.remove('on');});b.classList.add('on');};
+s.appendChild(b);})(i);}
+</script>
+</body>
+</html>
