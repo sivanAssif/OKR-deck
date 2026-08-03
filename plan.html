@@ -127,6 +127,7 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
   <a href="#stage1">שלב 1</a>
   <a href="#stage2">שלב 2</a>
   <a href="#stage3">שלב 3</a>
+  <a href="#deps">תלויות</a>
   <a href="#risks">סיכונים</a>
   <a href="#learnings">יומן הבנות</a>
 </nav>
@@ -143,16 +144,6 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
   </div>
 </div>
 
-<div class="sec-title">ציר זמן משוער</div>
-<div class="timeline">
-  <div class="tl-track">
-    <div class="tl-seg s1"><div class="dur">2–3 חודשים</div><h4>שלב 1</h4><p>הטמעה בגלאור + איסוף ביקוש</p></div>
-    <div class="tl-seg s2"><div class="dur">4–6 חודשים</div><h4>שלב 2</h4><p>פיילוטים בתשלום + חיבור HR</p></div>
-    <div class="tl-seg s3"><div class="dur">3–4 חודשים</div><h4>שלב 3</h4><p>השקעה / שותפות</p></div>
-  </div>
-  <div class="tl-total"><b>סה״כ כ-9–12 חודשים (בערך שנה).</b> הטווחים גמישים — כל שער מעבר נפתח כשהעובדות תומכות, אבל הקצב מהיר כי הכלי כבר קיים ועובד.</div>
-</div>
-
 <div class="sec-title">שלושת השלבים</div>
 
 <!-- STAGE 1 -->
@@ -163,7 +154,6 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h2>הטמעה בגלאור + איסוף ביקוש</h2>
       <p class="sub">הוכחת ערך פנימית — מודדים שימוש אמיתי, ובמקביל בודקים ביקוש בחוץ</p>
     </div>
-    <div class="dur-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>2–3 חודשים</div>
     <div class="gate">מעבר לשלב 2: ההנהלה משתמשת שוטף + 7/10 שיחות מצביעות על כאב אמיתי</div>
   </div>
   <div class="stage-body">
@@ -237,7 +227,6 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h2>פיילוטים בתשלום + חיבור למערכת HR</h2>
       <p class="sub">3–5 ארגונים בארץ · המבחן: הנהלה משנה תהליכי עבודה, מאמצת ומשלמת</p>
     </div>
-    <div class="dur-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>4–6 חודשים</div>
     <div class="gate">מעבר לשלב 3: לקוחות משלמים + מתודולוגיה מוכחת + אינטגרציה חיה</div>
   </div>
   <div class="stage-body">
@@ -314,7 +303,6 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h2>השקעה / שותפות</h2>
       <p class="sub">להעלות ערך לפני שיחה עם משקיע/שותף — כדי שיראו מוצר, לא תכונה</p>
     </div>
-    <div class="dur-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>3–4 חודשים</div>
     <div class="gate">מטרה: עסקה שמעריכה מוצר עם לקוחות, מתודולוגיה וידע — לא תכונה</div>
   </div>
   <div class="stage-body">
@@ -378,6 +366,21 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
 </div>
 
 <!-- cross-cutting risks -->
+<div class="sec-title" id="deps">תלויות מרוכזות — במה הפרויקט תלוי</div>
+<div class="matrix">
+  <table>
+    <thead><tr><th>שלב</th><th>תלוי ב…</th><th>קריטיות</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>תמיכת ההנהלה בשינוי שגרת הישיבה</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>1</td><td>זמינות מנהלים לסדנה ולעדכון שוטף</td><td><span class="sev md">בינונית</span></td></tr>
+      <tr><td>2</td><td>Goals API של HiBob / מערכת ה-HR</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>2</td><td>משאבי פיתוח ל-multi-tenant ו-onboarding</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>2</td><td>זמן ניהולי לליווי כל פיילוט</td><td><span class="sev md">בינונית</span></td></tr>
+      <tr><td>3</td><td>הצלחת הפיילוטים ומדדי traction אמינים משלב 2</td><td><span class="sev hi">גבוהה</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
 <div class="sec-title" id="risks">סיכונים מרכזיים חוצי-פרויקט</div>
 <div class="matrix">
   <table>
