@@ -1,0 +1,334 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>תוכנית פרויקט — מהטמעה פנימית למוצר</title>
+<link rel="stylesheet" href="heebo.css" />
+<style>
+:root{
+  --brand:#6F28F0;--brand-deep:#5720B9;--b25:#F2ECFE;--b50:#E5D8FC;
+  --ink:#180926;--body:#42364E;--muted:#6C6375;--bg:#F5F2F4;--fg:#fff;--border:#E1DFE3;
+  --ok:#1E8E3F;--ok25:#EBF9EE;--warn:#B26A00;--warn25:#FBF2E2;--danger:#C62736;--danger25:#FDEDEE;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Heebo','Segoe UI',system-ui,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;padding:clamp(20px,4vw,40px) clamp(16px,4vw,32px);}
+.wrap{max-width:900px;margin:0 auto;}
+svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+a.back{display:inline-block;margin-bottom:14px;color:var(--brand-deep);text-decoration:none;font-weight:700;font-size:13px;}
+
+.hero{background:linear-gradient(120deg,#5720B9,#6F28F0);color:#fff;border-radius:18px;padding:30px 32px;position:relative;overflow:hidden;margin-bottom:22px;}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 140% at 88% -20%,rgba(255,255,255,.16),transparent 55%);}
+.hero .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E5D8FC;position:relative;}
+.hero h1{margin:6px 0 8px;font-size:clamp(22px,4vw,30px);font-weight:800;position:relative;}
+.hero p{margin:0;font-size:14px;color:#F2ECFE;position:relative;max-width:60ch;}
+
+.principles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:26px;}
+.principle{background:var(--fg);border:1px solid var(--border);border-inline-start:4px solid var(--brand);border-radius:12px;padding:14px 16px;}
+.principle h3{margin:0 0 6px;font-size:14px;font-weight:800;color:var(--brand-deep);display:flex;gap:8px;align-items:center;}
+.principle h3 svg{width:18px;height:18px;}
+.principle p{margin:0;font-size:13px;color:var(--body);}
+
+.sec-title{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--brand-deep);margin:28px 0 12px;}
+
+/* stage timeline */
+.stage{position:relative;background:var(--fg);border:1px solid var(--border);border-radius:16px;padding:0;margin-bottom:20px;overflow:hidden;}
+.stage-head{display:flex;align-items:flex-start;gap:14px;padding:18px 22px;background:var(--b25);border-bottom:1px solid var(--b50);}
+.stage-num{flex:none;width:40px;height:40px;border-radius:11px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px;}
+.stage-head .h{flex:1;}
+.stage-head h2{margin:0 0 3px;font-size:18px;font-weight:800;color:var(--ink);}
+.stage-head .sub{margin:0;font-size:12.5px;color:var(--brand-deep);font-weight:600;}
+.gate{flex:none;align-self:center;background:var(--fg);border:1px solid var(--b50);border-radius:999px;padding:5px 12px;font-size:11.5px;font-weight:700;color:var(--brand-deep);max-width:230px;text-align:center;}
+
+.stage-body{padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.block{}
+.block.full{grid-column:1 / -1;}
+.block h4{margin:0 0 8px;font-size:12px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:7px;}
+.block h4 svg{width:15px;height:15px;color:var(--brand);}
+.block ul{margin:0;padding-inline-start:18px;font-size:13px;color:var(--body);line-height:1.7;}
+.block li{margin:3px 0;}
+
+.tags{display:flex;flex-wrap:wrap;gap:7px;}
+.tag{display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:5px 11px;font-size:12px;font-weight:700;border:1px solid;}
+.tag svg{width:13px;height:13px;}
+.tag.milestone{background:var(--ok25);border-color:var(--ok);color:var(--ok);}
+.tag.deliver{background:var(--b25);border-color:var(--b50);color:var(--brand-deep);}
+.tag.risk{background:var(--danger25);border-color:var(--danger);color:var(--danger);}
+.tag.dep{background:var(--warn25);border-color:var(--warn);color:var(--warn);}
+
+/* cross-cutting tables */
+.matrix{background:var(--fg);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead th{background:var(--b25);color:var(--brand-deep);text-align:right;font-weight:800;padding:10px 14px;font-size:12px;letter-spacing:.03em;text-transform:uppercase;border-bottom:1px solid var(--b50);}
+tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--body);vertical-align:top;}
+tbody tr:last-child td{border-bottom:none;}
+td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;font-weight:700;}
+.sev.hi{background:var(--danger25);color:var(--danger);}
+.sev.md{background:var(--warn25);color:var(--warn);}
+
+.note{background:var(--b25);border:1px solid var(--b50);border-radius:12px;padding:14px 18px;font-size:13px;color:var(--brand-deep);margin-bottom:20px;}
+.note b{color:var(--brand-deep);}
+
+.foot{margin-top:24px;padding-top:14px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;text-align:center;}
+
+@media(max-width:640px){
+  .principles{grid-template-columns:1fr;}
+  .stage-body{grid-template-columns:1fr;}
+  .stage-head{flex-wrap:wrap;}
+  .gate{max-width:none;}
+}
+@media print{body{background:#fff;padding:0;}a.back{display:none;}.stage,.matrix,.principle{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">→ חזרה לכל המסמכים</a>
+
+<div class="hero">
+  <div class="eyebrow">תוכנית פרויקט · מפת דרכים</div>
+  <h1>מהטמעה פנימית למוצר</h1>
+  <p>שלושה שלבים מדורגים — כל מעבר מותנה בהוכחה. הדגש: איסוף מידע רלוונטי, תוצרים ברורים והבנות שמצטברות בכל שלב, כדי להחליט על בסיס עובדות ולא הנחות.</p>
+</div>
+
+<!-- guiding principles = the two concerns -->
+<div class="principles">
+  <div class="principle">
+    <h3><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M12 3v2"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>לפצח אימוץ ע״י מנהלים</h3>
+    <p>ההצלחה נמדדת בשימוש שוטף ובישיבות הנהלה — לא בהתקנה. אימוץ הוא היעד המרכזי בכל שלב, לא תוצר לוואי.</p>
+  </div>
+  <div class="principle">
+    <h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 4v16"/></svg>מוצר, לא פרויקט ייעוץ</h3>
+    <p>לשמור על ליבה אחת מתוקננת. התאמות ללקוח = הגדרות בתוך המוצר, לא פיתוח ייעודי לכל לקוח. אחרת זה לא ניתן לשכפול ולא נמכר.</p>
+  </div>
+</div>
+
+<div class="sec-title">שלושת השלבים</div>
+
+<!-- STAGE 1 -->
+<div class="stage">
+  <div class="stage-head">
+    <div class="stage-num">1</div>
+    <div class="h">
+      <h2>הטמעה בגלאור + איסוף ביקוש</h2>
+      <p class="sub">הוכחת ערך פנימית — מודדים שימוש אמיתי, ובמקביל בודקים ביקוש בחוץ</p>
+    </div>
+    <div class="gate">מעבר לשלב 2: ההנהלה משתמשת שוטף + 7/10 שיחות מצביעות על כאב אמיתי</div>
+  </div>
+  <div class="stage-body">
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>שלבי משנה</h4>
+      <ul>
+        <li>הטמעה מלאה של הכלי בכל מחלקות גלאור.</li>
+        <li>הכנסת הכלי לשגרת ישיבת ההנהלה (דף הסיכום כמקור-אמת).</li>
+        <li>סדנת מנהלים + דף עזר להטמעת ההרגל.</li>
+        <li>שליחת שאלון ה-Discovery במקביל (10+ שיחות).</li>
+        <li>העמקה למתעניינים: הצגת קובץ תוכניות עבודה אמיתי + מצגות הנהלה.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>איסוף מידע (מה מודדים)</h4>
+      <ul>
+        <li>% מנהלים שמעדכנים שוטף (מדד אימוץ #1).</li>
+        <li>כמה החלטות בישיבה נשענו על הכלי.</li>
+        <li>מהשאלון: <b>לאילו מערכות ארגוניות</b> כלי כזה צריך להתחבר.</li>
+        <li>מהשאלון: <b>האם יסכימו לפיילוט בתשלום</b>.</li>
+        <li>עוצמת הכאב + נכונות לשלם (כלל 7/10).</li>
+      </ul>
+    </div>
+
+    <div class="block full">
+      <h4><svg viewBox="0 0 24 24"><path d="M4 4h16v4H4z"/><path d="M4 12h16"/><path d="M4 16h10"/><path d="M4 20h7"/></svg>תוצרים ואבני דרך</h4>
+      <div class="tags">
+        <span class="tag deliver">תוצר · דוח שימוש רבעוני בגלאור</span>
+        <span class="tag deliver">תוצר · סיכום 10 שיחות Discovery</span>
+        <span class="tag deliver">תוצר · רשימת אינטגרציות נדרשות</span>
+        <span class="tag milestone">אבן דרך · ישיבת הנהלה מתנהלת מהכלי</span>
+        <span class="tag milestone">אבן דרך · 7/10 כאב מאומת</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
+      <div class="tags">
+        <span class="tag dep">תמיכת ההנהלה בשינוי שגרת הישיבה</span>
+        <span class="tag dep">זמינות מנהלים לסדנה</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
+      <div class="tags">
+        <span class="tag risk">מנהלים לא מעדכנים שוטף</span>
+        <span class="tag risk">שיחות מנומסות ולא כאב אמיתי</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- STAGE 2 -->
+<div class="stage">
+  <div class="stage-head">
+    <div class="stage-num">2</div>
+    <div class="h">
+      <h2>פיילוטים בתשלום + חיבור למערכת HR</h2>
+      <p class="sub">3–5 ארגונים בארץ · המבחן: הנהלה משנה תהליכי עבודה, מאמצת ומשלמת</p>
+    </div>
+    <div class="gate">מעבר לשלב 3: לקוחות משלמים + מתודולוגיה מוכחת + אינטגרציה חיה</div>
+  </div>
+  <div class="stage-body">
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>שלבי משנה</h4>
+      <ul>
+        <li>הגדרת גרסת מוצר לפיילוט (multi-tenant בסיסי, onboarding).</li>
+        <li>חיבור ראשוני למערכת HR (למשל HiBob) דרך API.</li>
+        <li>גיוס 3–5 ארגונים לפיילוט בתשלום.</li>
+        <li>ליווי ומדידה של כל פיילוט לאורך רבעון.</li>
+        <li>מיפוי ערוצי הגעה: יועצים ארגוניים, מנהלי HR, מנהלי תפעול.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>איסוף מידע (מה מודדים)</h4>
+      <ul>
+        <li>שיעור המרה מפיילוט ללקוח משלם.</li>
+        <li>האם ההנהלה בכל פיילוט <b>שינתה תהליך עבודה</b> בפועל.</li>
+        <li>אילו אינטגרציות התבקשו בפועל (מול ההנחות משלב 1).</li>
+        <li>ניתוח תחרות מורחב — כולל <b>Excel / מצגות</b> כמתחרה האמיתי.</li>
+        <li>איזה ערוץ הגעה הביא את הלקוחות האיכותיים.</li>
+      </ul>
+    </div>
+
+    <div class="block full">
+      <h4><svg viewBox="0 0 24 24"><path d="M4 4h16v4H4z"/><path d="M4 12h16"/><path d="M4 16h10"/><path d="M4 20h7"/></svg>תוצרים ואבני דרך</h4>
+      <div class="tags">
+        <span class="tag deliver">תוצר · גרסת מוצר לפיילוט</span>
+        <span class="tag deliver">תוצר · אינטגרציית HR חיה</span>
+        <span class="tag deliver">תוצר · ניתוח תחרות מורחב</span>
+        <span class="tag deliver">תוצר · Case study מלקוח</span>
+        <span class="tag milestone">אבן דרך · לקוח משלם ראשון</span>
+        <span class="tag milestone">אבן דרך · 3+ פיילוטים פעילים</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
+      <div class="tags">
+        <span class="tag dep">Goals API של HiBob / מערכת HR</span>
+        <span class="tag dep">משאבי פיתוח ל-multi-tenant</span>
+        <span class="tag dep">ליווי לקוח = זמן ניהולי</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
+      <div class="tags">
+        <span class="tag risk">הכלי גולש להתאמות פר-לקוח (פרויקט ייעוץ)</span>
+        <span class="tag risk">פיילוט חינמי שלא הופך לתשלום</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- STAGE 3 -->
+<div class="stage">
+  <div class="stage-head">
+    <div class="stage-num">3</div>
+    <div class="h">
+      <h2>השקעה / שותפות</h2>
+      <p class="sub">להעלות ערך לפני שיחה עם משקיע/שותף — כדי שיראו מוצר, לא תכונה</p>
+    </div>
+    <div class="gate">מטרה: עסקה שמעריכה מוצר עם לקוחות, מתודולוגיה וידע — לא תכונה</div>
+  </div>
+  <div class="stage-body">
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>שלבי משנה</h4>
+      <ul>
+        <li>איגוד הנכסים שמעלים ערך: לקוחות משלמים, מתודולוגיה מוכחת, ידע, אינטגרציות, יכולת מכירה.</li>
+        <li>בניית תיק שווי (traction + מדדים משלבים 1–2).</li>
+        <li>פנייה ממוקדת לשותף/משקיע (HiBob / Monday / אחר).</li>
+        <li>משא ומתן על מודל: רכישה / השקעה / שת״פ מסחרי.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>מה מוכיחים לשותף</h4>
+      <ul>
+        <li>ARR / לקוחות משלמים ושימור.</li>
+        <li>מתודולוגיה שחוזרת על עצמה בין ארגונים.</li>
+        <li>אינטגרציות חיות ועומק דאטה.</li>
+        <li>למה זה <b>מוצר</b> ולא פיצ׳ר בתוך מערכת HR.</li>
+      </ul>
+    </div>
+
+    <div class="block full">
+      <h4><svg viewBox="0 0 24 24"><path d="M4 4h16v4H4z"/><path d="M4 12h16"/><path d="M4 16h10"/><path d="M4 20h7"/></svg>תוצרים ואבני דרך</h4>
+      <div class="tags">
+        <span class="tag deliver">תוצר · תיק שווי / Data room</span>
+        <span class="tag deliver">תוצר · הצעת שת״פ ל-HiBob</span>
+        <span class="tag milestone">אבן דרך · פגישת שותף/משקיע</span>
+        <span class="tag milestone">אבן דרך · Term sheet</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
+      <div class="tags">
+        <span class="tag dep">הצלחת הפיילוטים משלב 2</span>
+        <span class="tag dep">מדדי traction אמינים</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
+      <div class="tags">
+        <span class="tag risk">שותף רואה בכלי תכונה, לא מוצר</span>
+        <span class="tag risk">תלות-יתר בשותף יחיד</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- cross-cutting risks -->
+<div class="sec-title">סיכונים מרכזיים חוצי-פרויקט</div>
+<div class="matrix">
+  <table>
+    <thead><tr><th>סיכון</th><th>חומרה</th><th>מזעור</th></tr></thead>
+    <tbody>
+      <tr><td>מנהלים לא מאמצים את הכלי בשוטף</td><td><span class="sev hi">גבוהה</span></td><td>הרגל שבועי קבוע, סדנה, דף עזר, אימוץ נמדד כ-KPI ניהולי</td></tr>
+      <tr><td>הכלי הופך לפרויקט ייעוץ פר-לקוח</td><td><span class="sev hi">גבוהה</span></td><td>ליבה מתוקננת אחת; התאמות = הגדרות במוצר בלבד</td></tr>
+      <tr><td>נתפס כתכונה של מערכת HR, לא מוצר</td><td><span class="sev md">בינונית</span></td><td>לצבור מתודולוגיה, לקוחות וידע לפני שיחת שותפות</td></tr>
+      <tr><td>ביקוש בשוק חלש מהצפוי</td><td><span class="sev md">בינונית</span></td><td>שער 7/10 בשלב 1 עוצר לפני השקעה גדולה</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- questionnaire additions -->
+<div class="note">
+  <b>עדכון לשאלון ה-Discovery (משלב 1):</b> נוספו שתי שאלות שביקשת — לאילו מערכות ארגוניות כלי כזה צריך להתחבר, והאם יש נכונות לפיילוט בתשלום. שתיהן מזינות ישירות את ההחלטות בשלבים 2–3.
+</div>
+
+<!-- learnings log -->
+<div class="sec-title">יומן הבנות (מתעדכן לאורך הדרך)</div>
+<div class="matrix">
+  <table>
+    <thead><tr><th>שלב</th><th>מה למדנו</th><th>מה משנים בעקבות זה</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>—</td><td>—</td></tr>
+      <tr><td>2</td><td>—</td><td>—</td></tr>
+      <tr><td>3</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="foot">תוכנית פרויקט · מהטמעה פנימית למוצר · גלאור</div>
+
+</div>
+</body>
+</html>
