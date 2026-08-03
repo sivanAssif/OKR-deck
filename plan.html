@@ -47,6 +47,8 @@ a.back{display:inline-block;margin-bottom:14px;color:var(--brand-deep);text-deco
 .stage-head .sub{margin:0;font-size:12.5px;color:var(--brand-deep);font-weight:600;}
 .gate{flex:none;align-self:center;background:var(--fg);border:1px solid var(--b50);border-radius:999px;padding:5px 12px;font-size:11.5px;font-weight:700;color:var(--brand-deep);max-width:230px;text-align:center;}
 
+.stage-gate{display:flex;align-items:center;gap:10px;background:var(--b25);border-top:1px solid var(--b50);padding:13px 22px;font-size:13px;font-weight:700;color:var(--brand-deep);}
+.stage-gate svg{width:18px;height:18px;flex:none;}
 .stage-body{padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .block{}
 .block.full{grid-column:1 / -1;}
@@ -151,15 +153,14 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
   <div class="stage-head">
     <div class="stage-num">1</div>
     <div class="h">
-      <h2>הטמעה בגלאור + איסוף ביקוש</h2>
-      <p class="sub">הוכחת ערך פנימית — מודדים שימוש אמיתי, ובמקביל בודקים ביקוש בחוץ</p>
+      <h2>הטמעה בגלאור + בדיקה אם יש שוק</h2>
+      <p class="sub">הוכחת ערך פנימית — מודדים שימוש אמיתי, ובמקביל בודקים אם ארגונים אחרים צריכים את זה</p>
     </div>
-    <div class="gate">מעבר לשלב 2: ההנהלה משתמשת שוטף + 7/10 שיחות מצביעות על כאב אמיתי</div>
   </div>
   <div class="stage-body">
 
     <div class="block">
-      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>שלבי משנה</h4>
+      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>משימות השלב</h4>
       <ul>
         <li>הטמעה מלאה של הכלי בכל מחלקות גלאור.</li>
         <li>הכנסת הכלי לשגרת ישיבת ההנהלה (דף הסיכום כמקור-אמת).</li>
@@ -203,19 +204,24 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
     <div class="block">
       <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
       <div class="tags">
-        <span class="tag dep">תמיכת ההנהלה בשינוי שגרת הישיבה</span>
-        <span class="tag dep">זמינות מנהלים לסדנה</span>
+        <span class="tag dep">מנדט הנהלה שמנהלים חייבים לעבוד בכלי</span>
+        <span class="tag dep">תוכן אמיתי בתוכניות (לא נתוני דמו)</span>
+        <span class="tag dep">גישה למרואיינים חיצוניים לשיחות</span>
       </div>
     </div>
 
     <div class="block">
       <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
       <div class="tags">
-        <span class="tag risk">מנהלים לא מעדכנים שוטף</span>
-        <span class="tag risk">שיחות מנומסות ולא כאב אמיתי</span>
+        <span class="tag risk">אימוץ בגלאור לא מייצג — משתמשים כי סיון בנתה ויש דחיפה פנימית</span>
+        <span class="tag risk">הכאב ייחודי לגלאור ולא קיים אצל אחרים</span>
       </div>
     </div>
 
+  </div>
+  <div class="stage-gate">
+    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+    שער מעבר לשלב 2: ההנהלה משתמשת שוטף + 7/10 שיחות מצביעות על כאב אמיתי גם מחוץ לגלאור
   </div>
 </div>
 
@@ -227,12 +233,11 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h2>פיילוטים בתשלום + חיבור למערכת HR</h2>
       <p class="sub">3–5 ארגונים בארץ · המבחן: הנהלה משנה תהליכי עבודה, מאמצת ומשלמת</p>
     </div>
-    <div class="gate">מעבר לשלב 3: לקוחות משלמים + מתודולוגיה מוכחת + אינטגרציה חיה</div>
   </div>
   <div class="stage-body">
 
     <div class="block">
-      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>שלבי משנה</h4>
+      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>משימות השלב</h4>
       <ul>
         <li>הגדרת גרסת מוצר לפיילוט (multi-tenant בסיסי, onboarding).</li>
         <li>חיבור ראשוני למערכת HR (למשל HiBob) דרך API.</li>
@@ -278,20 +283,25 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
     <div class="block">
       <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
       <div class="tags">
-        <span class="tag dep">Goals API של HiBob / מערכת HR</span>
-        <span class="tag dep">משאבי פיתוח ל-multi-tenant</span>
-        <span class="tag dep">ליווי לקוח = זמן ניהולי</span>
+        <span class="tag dep">ארכיטקטורת multi-tenant + הפרדת נתונים (הכלי היום חד-ארגוני)</span>
+        <span class="tag dep">גישה ל-Goals API של HiBob / מערכת HR</span>
+        <span class="tag dep">זמן וכוח-אדם ייעודי מעבר לתפקיד הנוכחי</span>
       </div>
     </div>
 
     <div class="block">
       <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
       <div class="tags">
+        <span class="tag risk">הפיכת כלי פנימי למוצר נמכר יקרה ומורכבת מהצפוי</span>
         <span class="tag risk">הכלי גולש להתאמות פר-לקוח (פרויקט ייעוץ)</span>
-        <span class="tag risk">פיילוט חינמי שלא הופך לתשלום</span>
+        <span class="tag risk">מתחרה חינמי (Excel) או קיים (Monday) — עלות מעבר נמוכה</span>
       </div>
     </div>
 
+  </div>
+  <div class="stage-gate">
+    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+    שער מעבר לשלב 3: יש לקוחות משלמים, מתודולוגיה שחזרה על עצמה, ואינטגרציית HR חיה
   </div>
 </div>
 
@@ -303,12 +313,11 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h2>השקעה / שותפות</h2>
       <p class="sub">להעלות ערך לפני שיחה עם משקיע/שותף — כדי שיראו מוצר, לא תכונה</p>
     </div>
-    <div class="gate">מטרה: עסקה שמעריכה מוצר עם לקוחות, מתודולוגיה וידע — לא תכונה</div>
   </div>
   <div class="stage-body">
 
     <div class="block">
-      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>שלבי משנה</h4>
+      <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>משימות השלב</h4>
       <ul>
         <li>איגוד הנכסים שמעלים ערך: לקוחות משלמים, מתודולוגיה מוכחת, ידע, אינטגרציות, יכולת מכירה.</li>
         <li>בניית תיק שווי (traction + מדדים משלבים 1–2).</li>
@@ -349,19 +358,24 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
     <div class="block">
       <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
       <div class="tags">
-        <span class="tag dep">הצלחת הפיילוטים משלב 2</span>
-        <span class="tag dep">מדדי traction אמינים</span>
+        <span class="tag dep">traction מוכח משלב 2 (לקוחות משלמים + שימור)</span>
+        <span class="tag dep">עניין אסטרטגי של שותף (HiBob / Monday פעילים ברכישות)</span>
       </div>
     </div>
 
     <div class="block">
       <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
       <div class="tags">
-        <span class="tag risk">שותף רואה בכלי תכונה, לא מוצר</span>
-        <span class="tag risk">תלות-יתר בשותף יחיד</span>
+        <span class="tag risk">שותף בונה בעצמו במקום לרכוש</span>
+        <span class="tag risk">תלות-יתר בשותף/לקוח יחיד</span>
+        <span class="tag risk">חלון ההזדמנות נסגר אם מתחרה תופס את החלל</span>
       </div>
     </div>
 
+  </div>
+  <div class="stage-gate">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+    יעד השלב: עסקה שמעריכה מוצר עם לקוחות, מתודולוגיה וידע — לא תכונה
   </div>
 </div>
 
@@ -371,12 +385,13 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
   <table>
     <thead><tr><th>שלב</th><th>תלוי ב…</th><th>קריטיות</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>תמיכת ההנהלה בשינוי שגרת הישיבה</td><td><span class="sev hi">גבוהה</span></td></tr>
-      <tr><td>1</td><td>זמינות מנהלים לסדנה ולעדכון שוטף</td><td><span class="sev md">בינונית</span></td></tr>
-      <tr><td>2</td><td>Goals API של HiBob / מערכת ה-HR</td><td><span class="sev hi">גבוהה</span></td></tr>
-      <tr><td>2</td><td>משאבי פיתוח ל-multi-tenant ו-onboarding</td><td><span class="sev hi">גבוהה</span></td></tr>
-      <tr><td>2</td><td>זמן ניהולי לליווי כל פיילוט</td><td><span class="sev md">בינונית</span></td></tr>
-      <tr><td>3</td><td>הצלחת הפיילוטים ומדדי traction אמינים משלב 2</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>1</td><td>מנדט הנהלה שמנהלים חייבים לעבוד בכלי</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>1</td><td>תוכן אמיתי בתוכניות (לא נתוני דמו)</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>1</td><td>גישה למרואיינים חיצוניים לשיחות</td><td><span class="sev md">בינונית</span></td></tr>
+      <tr><td>2</td><td>ארכיטקטורת multi-tenant + הפרדת נתונים</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>2</td><td>גישה ל-Goals API של HiBob / מערכת HR</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>2</td><td>זמן וכוח-אדם ייעודי מעבר לתפקיד הנוכחי</td><td><span class="sev md">בינונית</span></td></tr>
+      <tr><td>3</td><td>traction מוכח משלב 2 + עניין שותף אסטרטגי</td><td><span class="sev hi">גבוהה</span></td></tr>
     </tbody>
   </table>
 </div>
@@ -386,10 +401,11 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
   <table>
     <thead><tr><th>סיכון</th><th>חומרה</th><th>מזעור</th></tr></thead>
     <tbody>
-      <tr><td>מנהלים לא מאמצים את הכלי בשוטף</td><td><span class="sev hi">גבוהה</span></td><td>הרגל שבועי קבוע, סדנה, דף עזר, אימוץ נמדד כ-KPI ניהולי</td></tr>
+      <tr><td>אימוץ בגלאור לא מייצג ארגונים אחרים (הטיית מדגם)</td><td><span class="sev hi">גבוהה</span></td><td>לאמת את הכאב בשיחות חיצוניות, לא להסתמך רק על גלאור</td></tr>
+      <tr><td>היקף העבודה להפוך כלי פנימי למוצר נמכר</td><td><span class="sev hi">גבוהה</span></td><td>לתמחר מראש multi-tenant / אבטחה / onboarding לפני התחייבות ללקוחות</td></tr>
       <tr><td>הכלי הופך לפרויקט ייעוץ פר-לקוח</td><td><span class="sev hi">גבוהה</span></td><td>ליבה מתוקננת אחת; התאמות = הגדרות במוצר בלבד</td></tr>
-      <tr><td>נתפס כתכונה של מערכת HR, לא מוצר</td><td><span class="sev md">בינונית</span></td><td>לצבור מתודולוגיה, לקוחות וידע לפני שיחת שותפות</td></tr>
-      <tr><td>ביקוש בשוק חלש מהצפוי</td><td><span class="sev md">בינונית</span></td><td>שער 7/10 בשלב 1 עוצר לפני השקעה גדולה</td></tr>
+      <tr><td>זמן וכוח-אדם — פרויקט צד לצד התפקיד הנוכחי</td><td><span class="sev md">בינונית</span></td><td>להגדיר גבולות זמן; לשקול שותף/מגייס כבר בשלב 2</td></tr>
+      <tr><td>נתפס כתכונה של מערכת HR ולא מוצר</td><td><span class="sev md">בינונית</span></td><td>לצבור מתודולוגיה, לקוחות וידע לפני שיחת שותפות</td></tr>
     </tbody>
   </table>
 </div>
