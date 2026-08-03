@@ -104,6 +104,16 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
 .kpi ul{margin:0;padding-inline-start:18px;font-size:13px;color:var(--body);line-height:1.7;}
 .kpi b{color:var(--ok);font-variant-numeric:tabular-nums;}
 
+/* per-stage mini risk table + dependency list */
+.mini-tbl{width:100%;border-collapse:collapse;font-size:12.5px;}
+.mini-tbl th{text-align:right;font-size:10.5px;font-weight:800;color:var(--muted);padding:5px 8px;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.03em;}
+.mini-tbl td{padding:7px 8px;border-bottom:1px solid var(--border);color:var(--body);vertical-align:top;}
+.mini-tbl tr:last-child td{border-bottom:none;}
+.lvl{display:inline-block;border-radius:6px;padding:1px 9px;font-size:11px;font-weight:700;white-space:nowrap;}
+.lvl.hi{background:var(--danger25);color:var(--danger);}
+.lvl.md{background:var(--warn25);color:var(--warn);}
+.lvl.lo{background:var(--ok25);color:var(--ok);}
+
 @media(max-width:640px){
   .tl-track{grid-template-columns:1fr;}
   .principles{grid-template-columns:1fr;}
@@ -119,9 +129,9 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
 <a class="back" href="index.html">→ חזרה לכל המסמכים</a>
 
 <div class="hero">
-  <div class="eyebrow">תוכנית פרויקט · מפת דרכים</div>
+  <div class="eyebrow">תוכנית פרויקט</div>
   <h1>מהטמעה פנימית למוצר</h1>
-  <p>שלושה שלבים מדורגים — כל מעבר מותנה בהוכחה. הדגש: איסוף מידע רלוונטי, תוצרים ברורים והבנות שמצטברות בכל שלב, כדי להחליט על בסיס עובדות ולא הנחות.</p>
+  <p>שלושה שלבים — כל מעבר מותנה בהוכחה. הדגש: איסוף מידע רלוונטי, תוצרים ברורים והבנות שמצטברות בכל שלב, כדי להחליט על בסיס עובדות ולא הנחות.</p>
 </div>
 
 <!-- in-page navigation -->
@@ -163,8 +173,8 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>משימות השלב</h4>
       <ul>
         <li>הטמעה מלאה של הכלי בכל מחלקות גלאור.</li>
-        <li>הכנסת הכלי לשגרת ישיבת ההנהלה (דף הסיכום כמקור-אמת).</li>
-        <li>סדנת מנהלים + דף עזר להטמעת ההרגל.</li>
+        <li>הכנסת הכלי לשגרת ישיבת ההנהלה (דף מצב וכיוון כמקור-אמת).</li>
+        <li>סדנת מנהלים + דף עזר להטמעה.</li>
         <li>שליחת שאלון ה-Discovery במקביל (10+ שיחות).</li>
         <li>העמקה למתעניינים: הצגת קובץ תוכניות עבודה אמיתי + מצגות הנהלה.</li>
       </ul>
@@ -196,26 +206,29 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h4><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg>מדדי הצלחה לשער המעבר</h4>
       <ul>
         <li><b>≥80%</b> מהמנהלים מעדכנים סטטוס שוטף כל שבוע.</li>
-        <li><b>≥70%</b> מהחלטות ההנהלה נשענות על דף הסיכום.</li>
+        <li><b>≥70%</b> מהחלטות ההנהלה נשענות על מידע מהמערכת.</li>
         <li><b>10+</b> שיחות Discovery הושלמו, מתוכן <b>7/10</b> עם כאב מאומת.</li>
       </ul>
     </div>
 
-    <div class="block">
+    <div class="block full">
       <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
-      <div class="tags">
-        <span class="tag dep">מנדט הנהלה שמנהלים חייבים לעבוד בכלי</span>
-        <span class="tag dep">תוכן אמיתי בתוכניות (לא נתוני דמו)</span>
-        <span class="tag dep">גישה למרואיינים חיצוניים לשיחות</span>
-      </div>
+      <ul>
+        <li>מנדט הנהלה שמנהלים חייבים לעבוד בכלי.</li>
+        <li>תוכן אמיתי בתוכניות (לא נתוני דמו).</li>
+        <li>גישה למרואיינים חיצוניים לשיחות.</li>
+      </ul>
     </div>
 
-    <div class="block">
+    <div class="block full">
       <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
-      <div class="tags">
-        <span class="tag risk">אימוץ בגלאור לא מייצג — משתמשים כי סיון בנתה ויש דחיפה פנימית</span>
-        <span class="tag risk">הכאב ייחודי לגלאור ולא קיים אצל אחרים</span>
-      </div>
+      <table class="mini-tbl">
+        <thead><tr><th>סיכון</th><th>רמה</th><th>תוכנית מגירה</th></tr></thead>
+        <tbody>
+          <tr><td>אימוץ בגלאור לא מייצג — משתמשים כי סיון בנתה ויש דחיפה פנימית</td><td><span class="lvl hi">גבוהה</span></td><td>לאמת את הכאב בשיחות חיצוניות; לא להחליט על סמך גלאור בלבד</td></tr>
+          <tr><td>הכאב ייחודי לגלאור ולא קיים אצל אחרים</td><td><span class="lvl hi">גבוהה</span></td><td>אם השיחות מראות שאין כאב — לעצור ולא להשקיע בהמשך</td></tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
@@ -280,22 +293,25 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       </ul>
     </div>
 
-    <div class="block">
+    <div class="block full">
       <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
-      <div class="tags">
-        <span class="tag dep">ארכיטקטורת multi-tenant + הפרדת נתונים (הכלי היום חד-ארגוני)</span>
-        <span class="tag dep">גישה ל-Goals API של HiBob / מערכת HR</span>
-        <span class="tag dep">זמן וכוח-אדם ייעודי מעבר לתפקיד הנוכחי</span>
-      </div>
+      <ul>
+        <li>ארכיטקטורת multi-tenant + הפרדת נתונים (הכלי היום חד-ארגוני).</li>
+        <li>גישה ל-Goals API של HiBob / מערכת HR.</li>
+        <li>זמן וכוח-אדם ייעודי מעבר לתפקיד הנוכחי.</li>
+      </ul>
     </div>
 
-    <div class="block">
+    <div class="block full">
       <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
-      <div class="tags">
-        <span class="tag risk">הפיכת כלי פנימי למוצר נמכר יקרה ומורכבת מהצפוי</span>
-        <span class="tag risk">הכלי גולש להתאמות פר-לקוח (פרויקט ייעוץ)</span>
-        <span class="tag risk">מתחרה חינמי (Excel) או קיים (Monday) — עלות מעבר נמוכה</span>
-      </div>
+      <table class="mini-tbl">
+        <thead><tr><th>סיכון</th><th>רמה</th><th>תוכנית מגירה</th></tr></thead>
+        <tbody>
+          <tr><td>הפיכת כלי פנימי למוצר נמכר יקרה ומורכבת מהצפוי</td><td><span class="lvl hi">גבוהה</span></td><td>להתחיל מ-MVP רזה; לתמחר מראש ולא לבנות הכל מראש</td></tr>
+          <tr><td>הכלי גולש להתאמות פר-לקוח (פרויקט ייעוץ)</td><td><span class="lvl hi">גבוהה</span></td><td>ליבה אחת מתוקננת; התאמות = הגדרות בלבד; לסרב לפיתוח ייעודי</td></tr>
+          <tr><td>מתחרה חינמי (Excel) או קיים (Monday) — עלות מעבר נמוכה</td><td><span class="lvl md">בינונית</span></td><td>לבדל במתודולוגיה, בחסמים ובעברית — לא בפיצ׳רים</td></tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
@@ -355,21 +371,24 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       </ul>
     </div>
 
-    <div class="block">
+    <div class="block full">
       <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
-      <div class="tags">
-        <span class="tag dep">traction מוכח משלב 2 (לקוחות משלמים + שימור)</span>
-        <span class="tag dep">עניין אסטרטגי של שותף (HiBob / Monday פעילים ברכישות)</span>
-      </div>
+      <ul>
+        <li>traction מוכח משלב 2 (לקוחות משלמים + שימור).</li>
+        <li>עניין אסטרטגי של שותף (HiBob / Monday פעילים ברכישות).</li>
+      </ul>
     </div>
 
-    <div class="block">
+    <div class="block full">
       <h4><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>סיכונים</h4>
-      <div class="tags">
-        <span class="tag risk">שותף בונה בעצמו במקום לרכוש</span>
-        <span class="tag risk">תלות-יתר בשותף/לקוח יחיד</span>
-        <span class="tag risk">חלון ההזדמנות נסגר אם מתחרה תופס את החלל</span>
-      </div>
+      <table class="mini-tbl">
+        <thead><tr><th>סיכון</th><th>רמה</th><th>תוכנית מגירה</th></tr></thead>
+        <tbody>
+          <tr><td>שותף בונה בעצמו במקום לרכוש</td><td><span class="lvl hi">גבוהה</span></td><td>להגיע עם מתודולוגיה, לקוחות וידע שקשה לשכפל במהירות</td></tr>
+          <tr><td>תלות-יתר בשותף / לקוח יחיד</td><td><span class="lvl md">בינונית</span></td><td>לנהל כמה לקוחות ושותפים פוטנציאליים במקביל</td></tr>
+          <tr><td>חלון ההזדמנות נסגר אם מתחרה תופס את החלל</td><td><span class="lvl md">בינונית</span></td><td>לזוז מהר בשלב 2 ולא להתמהמה בהחלטות</td></tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
