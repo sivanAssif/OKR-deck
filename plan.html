@@ -253,17 +253,17 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>משימות השלב</h4>
       <ul>
         <li>הגדרת גרסת מוצר לפיילוט (multi-tenant בסיסי, onboarding).</li>
-        <li>חיבור ראשוני למערכת HR (למשל HiBob) דרך API.</li>
+        <li>בדיקת היתכנות חיבור למערכת HR (Goals API) — <b>לא מימוש מלא</b>; המימוש רק כשלקוח משלם צריך אותו.</li>
         <li>גיוס 3–5 ארגונים לפיילוט בתשלום.</li>
         <li>ליווי ומדידה של כל פיילוט לאורך רבעון.</li>
-        <li>מיפוי ערוצי הגעה: יועצים ארגוניים, מנהלי HR, מנהלי תפעול.</li>
+        <li>מיפוי ערוצי הגעה ללקוחות — איפה נמצאים הקונים ואיך מגיעים אליהם (יועצים ארגוניים, מנהלי HR, מנהלי תפעול, כנסים, המלצות).</li>
       </ul>
     </div>
 
     <div class="block">
       <h4><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>איסוף מידע (מה מודדים)</h4>
       <ul>
-        <li>שיעור המרה מפיילוט ללקוח משלם.</li>
+        <li>שיעור המרה מפיילוט ללקוח משלם (כמה מהמתחילים ממשיכים לשלם).</li>
         <li>האם ההנהלה בכל פיילוט <b>שינתה תהליך עבודה</b> בפועל.</li>
         <li>אילו אינטגרציות התבקשו בפועל (מול ההנחות משלב 1).</li>
         <li>ניתוח תחרות מורחב — כולל <b>Excel / מצגות</b> כמתחרה האמיתי.</li>
@@ -297,7 +297,7 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <h4><svg viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>תלויות</h4>
       <ul>
         <li>ארכיטקטורת multi-tenant + הפרדת נתונים (הכלי היום חד-ארגוני).</li>
-        <li>גישה ל-Goals API של HiBob / מערכת HR.</li>
+        <li>גישה ל-Goals API של HiBob / מערכת HR — <b>רק אם נלך לכיוון הזה (?)</b>.</li>
         <li>זמן וכוח-אדם ייעודי מעבר לתפקיד הנוכחי.</li>
       </ul>
     </div>
@@ -335,8 +335,8 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
     <div class="block">
       <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>משימות השלב</h4>
       <ul>
-        <li>איגוד הנכסים שמעלים ערך: לקוחות משלמים, מתודולוגיה מוכחת, ידע, אינטגרציות, יכולת מכירה.</li>
-        <li>בניית תיק שווי (traction + מדדים משלבים 1–2).</li>
+        <li>ריכוז הנכסים שמעלים ערך לחבילה אחת שקשה לשכפל: לקוחות משלמים, מתודולוגיה מוכחת, ידע, אינטגרציות ויכולת מכירה.</li>
+        <li>בניית תיק שווי — מסמך שמראה למשקיע את ההוכחות במספרים (לקוחות, הכנסה, שימור, צמיחה) משלבים 1–2.</li>
         <li>פנייה ממוקדת לשותף/משקיע (HiBob / Monday / אחר).</li>
         <li>משא ומתן על מודל: רכישה / השקעה / שת״פ מסחרי.</li>
       </ul>
@@ -408,7 +408,7 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
       <tr><td>1</td><td>תוכן אמיתי בתוכניות (לא נתוני דמו)</td><td><span class="sev hi">גבוהה</span></td></tr>
       <tr><td>1</td><td>גישה למרואיינים חיצוניים לשיחות</td><td><span class="sev md">בינונית</span></td></tr>
       <tr><td>2</td><td>ארכיטקטורת multi-tenant + הפרדת נתונים</td><td><span class="sev hi">גבוהה</span></td></tr>
-      <tr><td>2</td><td>גישה ל-Goals API של HiBob / מערכת HR</td><td><span class="sev hi">גבוהה</span></td></tr>
+      <tr><td>2</td><td>גישה ל-Goals API של HiBob / מערכת HR — רק אם נלך לכיוון הזה (?)</td><td><span class="sev md">בינונית</span></td></tr>
       <tr><td>2</td><td>זמן וכוח-אדם ייעודי מעבר לתפקיד הנוכחי</td><td><span class="sev md">בינונית</span></td></tr>
       <tr><td>3</td><td>traction מוכח משלב 2 + עניין שותף אסטרטגי</td><td><span class="sev hi">גבוהה</span></td></tr>
     </tbody>
@@ -418,7 +418,7 @@ td .sev{display:inline-block;border-radius:6px;padding:2px 9px;font-size:11.5px;
 <div class="sec-title" id="risks">סיכונים מרכזיים חוצי-פרויקט</div>
 <div class="matrix">
   <table>
-    <thead><tr><th>סיכון</th><th>חומרה</th><th>מזעור</th></tr></thead>
+    <thead><tr><th>סיכון</th><th>חומרה</th><th>תוכנית מגירה</th></tr></thead>
     <tbody>
       <tr><td>אימוץ בגלאור לא מייצג ארגונים אחרים (הטיית מדגם)</td><td><span class="sev hi">גבוהה</span></td><td>לאמת את הכאב בשיחות חיצוניות, לא להסתמך רק על גלאור</td></tr>
       <tr><td>היקף העבודה להפוך כלי פנימי למוצר נמכר</td><td><span class="sev hi">גבוהה</span></td><td>לתמחר מראש multi-tenant / אבטחה / onboarding לפני התחייבות ללקוחות</td></tr>
